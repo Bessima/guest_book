@@ -1,0 +1,13 @@
+@import "menu.css";
+    
+    form{
+        padding-left: 10%;
+    }
+    input{ 
+        margin-left: 5%;
+        margin: 4px;
+     }
+     textarea{
+        margin-left: 5%;
+        width: 30%;
+     }

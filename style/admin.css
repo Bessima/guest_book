@@ -1,0 +1,4 @@
+@import "menu.css";
+#admin tr td{
+    border: 1px solid #B0B0B0;
+}

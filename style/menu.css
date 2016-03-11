@@ -1,0 +1,80 @@
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow:visible;
+    font-family: Georgia,Tahoma,Arial;
+    font-weight: 100;
+
+}
+    a{
+        text-decoration: none;
+        margin: 4px;
+        padding: 0px 6px;
+        border-bottom: 1px outset #606060;
+        border-radius: 5px;
+    }
+/*******************************Верняя часть экрана с заголовком**********************/
+            #top{
+                position: absolute;
+                background: white;
+                width: 100%;
+                height: 15%;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                border-bottom:2px solid #606060; 
+
+            }
+                #top h1{
+                    font-size: 200%;
+                    color: black;
+                    padding-left: 5%;
+                    text-shadow: #cad5e2 1px 1px 0, #cad5e2 2px 2px 0,
+                                    #cad5e2 3px 3px 0;
+                }
+       
+/**********************************************Вертикальное меню**********************************/
+                    #menu{
+                    position: absolute;
+                    width: 100%;
+                    height: 10%;
+                    top:5%;
+                    color: black;
+                    margin: 0;
+                    padding-left: 70%;
+                    text-shadow: #cad5e2 1px 1px 0, #cad5e2 2px 2px 0;
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+
+                }
+                
+
+/**********************************************Контентное содержимое**********************************/
+            #content{
+                position: absolute;
+                width: 100%;
+                top:17%;
+                padding: 2px 4% 4%;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+            }
+/**********************************************Футор*************************************************/
+            footer{
+            position: fixed;
+            background: #cad5e2;
+            color: white;
+            bottom: 0;
+            height:4%;
+            width: 100%;
+        }
+/************************************table*****************************/
+table{
+	margin-top:3px;
+    margin-left: 1%;
+    width: 99%;
+    position: relative;
+    border: 1px solid #B0B0B0;
+}
+#pagin{
+    text-align: center;
+}
