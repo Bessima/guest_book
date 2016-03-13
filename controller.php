@@ -14,13 +14,13 @@ class Controlller
         switch ($this->type)
         {
             case 'user':
-                $this->user();
+                $this->User();
                 break;
             case 'admin':
-                $this->admin();
+                $this->Admin();
                 break;
             case 'add':
-                $this->add();
+                $this->Add();
                 break;
         }
     }
