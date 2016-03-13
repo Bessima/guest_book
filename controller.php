@@ -1,13 +1,6 @@
 <?php
-require_once "/model/articles_function.php";
-interface Controller{
-    public function type_enter();
-    public function user();
-    public function admin();
-    public function add();
-    function admin_action($action);
-}
-class Control implements Controller
+
+class Controlller
 {
     public $type;
     public $action;
@@ -32,18 +25,18 @@ class Control implements Controller
         }
     }
 
-    function user()
+    function User()
     {
         $article = new Show_Article();
-        $article->articles_show();
+        $article->ArticlesShow();
 
         include "/views/articles.php";
     }
 
-    function admin()
+    function Admin()
     {
         $article = new Admin_Change();
-        $article->show_admin();
+        $article->ShowDataAdmin();
         include "/views/articles_admin.php";
         if (isset($_GET['action']))
         {
@@ -53,18 +46,18 @@ class Control implements Controller
         else
             $this->action = "";
     }
-    function admin_action($action){
+    function AdminAction($action){
         $article = new Admin_Change();
         switch ($action)
         {
             case 'delete':
                 $id = $_GET['id'];
-                $article->articles_delete($id);
+                $article->ArticleDelete($id);
                 header("Location: index.php?type=admin");
                 break;
             case 'show':
                 $id = $_GET['id'];
-                $article ->articles_visible($id);
+                $article ->ArticlesVisible($id);
                 header("Location: index.php");
                 break;
             case 'add':
@@ -76,12 +69,12 @@ class Control implements Controller
                 include "../message/good.php";
                 break;
             default:
-                $article->show_admin();
+                $article->ShowDataAdmin();
                 include "../views/articles_admin.php";
                 break;
         }
     }
-    function add()
+    function Add()
     {
         include "/views/add.php";
     }
