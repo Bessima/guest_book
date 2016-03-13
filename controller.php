@@ -4,7 +4,7 @@ class Controlller
 {
     public $type;
     public $action;
-    function type_enter()
+    function TypeEnter()
     {
         if (isset($_GET['type']))
          $this->type = $_GET['type'];
