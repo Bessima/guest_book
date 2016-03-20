@@ -1,4 +1,4 @@
-<?
+<?php
 abstract class Article
 {
 
@@ -118,7 +118,7 @@ class Show_Article extends Article{
 
 	}
 	}
-
+?>
 
 
 

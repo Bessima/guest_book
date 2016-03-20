@@ -1,4 +1,4 @@
-<?
+<?php
 
 class DB{
 const SERVER = "localhost";
@@ -20,5 +20,4 @@ const DB = "guest";
 }
 
 
-	
-	?>
+?>

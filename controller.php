@@ -1,5 +1,5 @@
 <?php
-require_once "/model/articles_function.php";
+
 interface Controller{
     public function type_enter();
     public function user();
