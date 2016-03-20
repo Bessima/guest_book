@@ -14,11 +14,11 @@ abstract class Article
 	}
 
 }
-class Show_Article extends Article{
+class ShowArticle extends Article{
 	public $count_page;
 	const COUNT_ARTICLE = 10;
 
-	public function articles_show()
+	public function ArticlesShow()
 	{
 
 		if (isset($_GET['page']))
@@ -49,11 +49,11 @@ class Show_Article extends Article{
 		}
 	}
 
-	class Admin_Change extends Article
+	class ChangeOfAdmin extends Article
 	{
 		public $id = array();
 		public $email = array();
-	function show_admin()
+	function ShowAdminArticle()
 	{
 		$query_admin = mysql_query("SELECT * FROM article WHERE visible = 0");
 		if (!$query_admin)
@@ -71,7 +71,7 @@ class Show_Article extends Article{
 		}
 	}
 
-	function articles_delete($id)
+	function DeleteArticle($id)
 	{
 		$id =(int)$id;
 		if ($id == 0)
@@ -82,7 +82,7 @@ class Show_Article extends Article{
 			die(mysql_error());
 		return mysql_affected_rows();
 	}
-	function articles_visible($id)
+	function VisibleArticle($id)
 	{
 		$id =(int)$id;
 
@@ -95,7 +95,7 @@ class Show_Article extends Article{
 	}
 
 /******************Регулярные выражения проверка*********************************************/
-	function check($author,$email,$text)
+	function CheckNewArticle($author,$email,$text)
 	{
 		$Name = "/^[a-zA-Z]|[а-яА-ЯёЁьЬъЪыЫ]{1,255}$/";
 		$Message = "/^([а-яА-ЯёЁa-zA-Z])|(\x7F-\xFF-)|(\s)]/";
@@ -118,7 +118,6 @@ class Show_Article extends Article{
 
 	}
 	}
-?>
 
 
 

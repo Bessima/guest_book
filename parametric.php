@@ -8,7 +8,7 @@ class Parametric
     protected $new_email;
     protected $new_text;
 
-    function Get_Type()
+    function getType()
     {
         if (isset($_GET['type']))
             $this->type = $_GET['type'];
@@ -16,7 +16,7 @@ class Parametric
             $this->type = "user";
 
     }
-    function Get_Action()
+    function getAction()
     {
         if (isset($_GET['action']))
         {
@@ -26,7 +26,7 @@ class Parametric
             $this->action = "";
         $this->id = $_GET['id'];
     }
-    function Post_Add()
+    function postAdd()
     {
         $this->new_author = htmlspecialchars(trim($_POST['author']));
         $this->new_email = htmlspecialchars(trim($_POST['email']));

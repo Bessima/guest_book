@@ -1,13 +1,14 @@
 <?php
 
-interface Controller{
-    public function type_enter();
+interface IController{
+    public function TypeEnter();
 }
-class Control implements Controller
+class Controller implements IController
 {
     public $type;
     public $action;
-    function type_enter()
+
+    function TypeEnter()
     {
         if (isset($_GET['type']))
          $this->type = $_GET['type'];
@@ -17,50 +18,50 @@ class Control implements Controller
         switch ($this->type)
         {
             case 'user':
-                $this->user();
+                $this->User();
                 break;
             case 'admin':
-                $this->admin();
+                $this->Admin();
                 break;
             case 'add':
-                $this->add();
+                $this->Add();
                 break;
         }
     }
 
-    function user()
+    function User()
     {
-        $article = new Show_Article();
-        $article->articles_show();
+        $article = new ShowArticle();
+        $article->ArticlesShow();
 
         include "/views/articles.php";
     }
 
-    function admin()
+    function Admin()
     {
-        $article = new Admin_Change();
-        $article->show_admin();
+        $article = new ChangeOfAdmin();
+        $article->ShowAdminArticle();
         include "/views/articles_admin.php";
         if (isset($_GET['action']))
         {
             $this->action = $_GET['action'];
-            $this->admin_action($this->action);
+            $this->DoAdmin($this->action);
         }
         else
             $this->action = "";
     }
-    function admin_action($action){
-        $article = new Admin_Change();
+    function DoAdmin($action){
+        $article = new ChangeOfAdmin();
         switch ($action)
         {
             case 'delete':
                 $id = $_GET['id'];
-                $article->articles_delete($id);
+                $article->DeleteArticle($id);
                 header("Location: index.php?type=admin");
                 break;
             case 'show':
                 $id = $_GET['id'];
-                $article ->articles_visible($id);
+                $article ->VisibleArticle($id);
                 header("Location: index.php");
                 break;
             case 'add':
@@ -68,16 +69,16 @@ class Control implements Controller
                 $author = htmlspecialchars(trim($_POST['author']));
                 $email = htmlspecialchars(trim($_POST['email']));
                 $text = htmlspecialchars(trim($_POST['text']));
-                $article-> check($author, $email, $text);
+                $article-> CheckNewArticle($author, $email, $text);
                 include "../message/good.php";
                 break;
             default:
-                $article->show_admin();
+                $article->ShowAdminArticle();
                 include "../views/articles_admin.php";
                 break;
         }
     }
-    function add()
+    function Add()
     {
         include "/views/add.php";
     }

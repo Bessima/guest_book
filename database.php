@@ -1,12 +1,13 @@
 <?php
 
-class DB{
-const SERVER = "localhost";
-const USER = "root";
-const PASSWORD = "";
-const DB = "guest";
+class Db
+{
+	const SERVER = "localhost";
+	const USER = "root";
+	const PASSWORD = "";
+	const DB = "guest";
 
-	function start(){
+	function ConnectDb(){
 
 		$link = mysql_connect(self::SERVER,self::USER,self::PASSWORD);
 		if (mysql_select_db(self::DB)){
@@ -18,6 +19,3 @@ const DB = "guest";
 		return $link;
 	}
 }
-
-
-?>

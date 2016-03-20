@@ -5,9 +5,9 @@
 		/*$uri = preg_replace('/(^\/)|(\?.*?$)/', '', $_SERVER['REQUEST_URI']);
 		$uri = preg_replace('/\.[^s]\w+$/', '', $uri);*/
 		require_once 'database.php';
-		$link = new DB;
-		$link->start();
+		$link = new Db;
+		$link->ConnectDb();
 
-		include "controller.php";
-		$control = new Control();
-		$control->type_enter();
+		include "controller/controller.php";
+		$control = new Controller();
+		$control->TypeEnter();
