@@ -1,8 +1,7 @@
 <?php
 
-interface IController{
-    public function TypeEnter();
-}
+require_once 'IController.php';
+
 class Controller implements IController
 {
     public $type;
@@ -70,7 +69,7 @@ class Controller implements IController
                 $email = htmlspecialchars(trim($_POST['email']));
                 $text = htmlspecialchars(trim($_POST['text']));
                 $article-> CheckNewArticle($author, $email, $text);
-                include "../message/good.php";
+                header("Location: ../message/good.php");
                 break;
             default:
                 $article->ShowAdminArticle();
