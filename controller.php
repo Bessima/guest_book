@@ -1,10 +1,17 @@
 <?php
-
-class Controlller
+require_once "/model/articles_function.php";
+interface Controller{
+    public function type_enter();
+    public function user();
+    public function admin();
+    public function add();
+    function admin_action($action);
+}
+class Control implements Controller
 {
     public $type;
     public $action;
-    function TypeEnter()
+    function type_enter()
     {
         if (isset($_GET['type']))
          $this->type = $_GET['type'];
@@ -14,29 +21,29 @@ class Controlller
         switch ($this->type)
         {
             case 'user':
-                $this->User();
+                $this->user();
                 break;
             case 'admin':
-                $this->Admin();
+                $this->admin();
                 break;
             case 'add':
-                $this->Add();
+                $this->add();
                 break;
         }
     }
 
-    function User()
+    function user()
     {
         $article = new Show_Article();
-        $article->ArticlesShow();
+        $article->articles_show();
 
         include "/views/articles.php";
     }
 
-    function Admin()
+    function admin()
     {
         $article = new Admin_Change();
-        $article->ShowDataAdmin();
+        $article->show_admin();
         include "/views/articles_admin.php";
         if (isset($_GET['action']))
         {
@@ -46,18 +53,18 @@ class Controlller
         else
             $this->action = "";
     }
-    function AdminAction($action){
+    function admin_action($action){
         $article = new Admin_Change();
         switch ($action)
         {
             case 'delete':
                 $id = $_GET['id'];
-                $article->ArticleDelete($id);
+                $article->articles_delete($id);
                 header("Location: index.php?type=admin");
                 break;
             case 'show':
                 $id = $_GET['id'];
-                $article ->ArticlesVisible($id);
+                $article ->articles_visible($id);
                 header("Location: index.php");
                 break;
             case 'add':
@@ -69,12 +76,12 @@ class Controlller
                 include "../message/good.php";
                 break;
             default:
-                $article->ShowDataAdmin();
+                $article->show_admin();
                 include "../views/articles_admin.php";
                 break;
         }
     }
-    function Add()
+    function add()
     {
         include "/views/add.php";
     }
