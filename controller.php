@@ -2,10 +2,6 @@
 
 interface Controller{
     public function type_enter();
-    public function user();
-    public function admin();
-    public function add();
-    function admin_action($action);
 }
 class Control implements Controller
 {
